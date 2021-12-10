@@ -18,9 +18,9 @@ public class EmployerController {
     @Autowired
     private EmployerRepository employerRepository;
 
-    @GetMapping
+    @RequestMapping("")
     public String index(Model model){
-        model.addAttribute("Employers", employerRepository.findAll());
+        model.addAttribute("employers", employerRepository.findAll());
         return "employers/index";
     }
 
@@ -38,9 +38,11 @@ public class EmployerController {
             return "employers/add";
         }
         employerRepository.save(newEmployer);
+        model.addAttribute("Employers", newEmployer);
         return "redirect:";
     }
 
+    //list not getting passed into view here or in skills FIX
     @GetMapping("view/{employerId}")
     public String displayViewEmployer(Model model, @PathVariable int employerId) {
 
