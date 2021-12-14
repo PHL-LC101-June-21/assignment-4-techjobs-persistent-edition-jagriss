@@ -42,7 +42,7 @@ public class SkillController {
             return "skills/add";
         }
         skillRepository.save(newSkill);
-        model.addAttribute("Skills", newSkill);
+//        model.addAttribute("Skills", newSkill);
         return "redirect:";
     }
 
